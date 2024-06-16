@@ -1,17 +1,13 @@
 import './App.css';
+import NavBar from './components/NavBar/NavBar';
+
 
 function App() {
   return (
     <div className="App">
       <h1>RCS - React Clothing Store</h1>
-      <nav>
-        <div>LOGO</div>
-        <ul>
-          <li><a href="home-header">Home</a></li>
-          <li><a href="store">Store</a></li>
-          <li><a href="about">About</a></li>
-        </ul>
-      </nav>
+
+      <NavBar/>
 
       <header id="home-header">HEADER</header>
 
