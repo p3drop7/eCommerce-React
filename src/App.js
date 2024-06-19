@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
+import SearcherContainer from './components/ProductSearcher/SearcherContainer';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 
       <header id="home-header">HEADER</header>
 
-      <main id="store">MAIN</main>
+      <SearcherContainer id={"searcher"} />
 
       <section id="about">ABOUT</section>
 
