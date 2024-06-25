@@ -1,0 +1,67 @@
+[
+   "products": [
+    {
+       "productId":1001,
+       "name":"Casual Shoes",
+       "type":"Shoes",
+       "Price":50,
+       "quantity":10
+    },
+    {
+       "productId":1002,
+       "name":"Sports Shoes",
+       "type":"Shoes",
+       "Price":60,
+       "quantity":10
+    },
+    {
+       "productId":1003,
+       "name":"Man T-shirt",
+       "type":"T-Shirts",
+       "Price":20,
+       "quantity":10
+    },
+    {
+       "productId":1004,
+       "name":"Man Shirt",
+       "type":"Shirts",
+       "Price":30,
+       "quantity":10
+    },
+    {
+       "productId":1005,
+       "name":"Man Hoodie",
+       "type":"Hoodies-Sweaters",
+       "Price":40,
+       "quantity":10
+    },
+    {
+       "productId":1006,
+       "name":"Man Sweater",
+       "type":"Hoodies-Sweaters",
+       "Price":35,
+       "quantity":10
+    },
+    {
+       "productId":1007,
+       "name":"Man Black Jeans",
+       "type":"Trousers",
+       "Price":45,
+       "quantity":10
+    },
+    {
+       "productId":1008,
+       "name":"Man Blue Jeans",
+       "type":"Trousers",
+       "Price":45,
+       "quantity":10
+    },
+    {
+       "productId":1009,
+       "name":"Man Shorts",
+       "type":"Shorts",
+       "Price":30,
+       "quantity":10
+    }
+   ]
+]
