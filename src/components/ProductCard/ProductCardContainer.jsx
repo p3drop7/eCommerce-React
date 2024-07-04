@@ -1,16 +1,17 @@
 import React from 'react'
 import ProductCard from './ProductCard'
+import "./ProductCard.css"
 
 function ProductCardContainer({products}) {
     console.log(products)
   return (
-    <div>
+    <section className='ProductCardContainer'>
         {
             products 
                 ? products.map(item => <ProductCard key={item.id} item={item} /> )
                 : "Loading ..."
         }
-    </div>
+    </section>
   )
 }
 

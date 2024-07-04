@@ -1,7 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import ProductCardContainer from './components/ProductCard/ProductCardContainer';
-import SearcherContainer from './components/ProductSearcher/SearcherContainer';
 import useProducts from './data/useProducts';
 
 
@@ -21,12 +20,9 @@ function App() {
 
       <header id="home-header">HEADER</header>
 
-      <SearcherContainer id={"searcher"} />
-
+      <button onClick={handleClick}>REFRESH DATA</button>
       
-        <button onClick={handleClick}>REFRESH DATA</button>
-  
-        <ProductCardContainer products={products} />
+      <ProductCardContainer products={products} />
 
 
 

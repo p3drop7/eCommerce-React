@@ -1,0 +1,43 @@
+.ProductCardContainer {
+    width: 80%;
+    margin: 20px 0;
+    height: auto;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 25% 25% 25%;
+    column-gap: 20px;
+    row-gap: 20px;
+}
+
+.productCard {
+    padding: 10px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: bisque;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.productCard h4, p{
+    padding: 0;
+    margin: 5px 0;
+}
+
+.productCard div {
+    margin: 5px 0;
+    height: 60%;
+    min-height: 60%;
+    width: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.productDescription {
+    margin-top: 10px;
+    font-size: 0.8em;
+    overflow: hidden;
+}

@@ -1,13 +1,15 @@
-
+import "./ProductCard.css"
 
 function ProductCard({item}) {
   return (
-    <>
-        <div>{item.title}</div>
-        <div>{item.price}</div>
-        <img src={item.image} alt={item.title}/>
-    
-    </>
+    <article className="productCard">
+        <div className="cardImage" style={{
+          backgroundImage: `url(${item.image})`
+        }} />
+        <h4>{item.title}</h4>
+        <p>{item.price}€</p>
+        <p className="productDescription">{item.description}</p>
+    </article>
   )
 }
 
