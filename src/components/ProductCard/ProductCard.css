@@ -11,19 +11,26 @@
 
 .productCard {
     padding: 10px;
-    height: 450px;
+    min-height: 300px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-color: bisque;
+    background-color: #F8F6F1;
     border-radius: 5px;
     overflow: hidden;
+    cursor: pointer;
+    transition: 0.5s ease all;
 }
 
-.productCard h4, p{
+.productCard:hover {
+    background-color: #BDB3B2;
+}
+
+.productCard h5, p{
     padding: 0;
-    margin: 5px 0;
+    margin: 2px 0;
 }
 
 .productCard div {

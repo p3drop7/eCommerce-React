@@ -1,7 +1,9 @@
 import './App.css';
-import NavBar from './components/NavBar/NavBar';
+import { CartProvider } from './context/CartContext.jsx';
 import ProductCardContainer from './components/ProductCard/ProductCardContainer';
 import useProducts from './data/useProducts';
+import NavBar from './components/NavBar/NavBar';
+import Cart from './components/Cart/Cart';
 
 
 function App() {
@@ -15,6 +17,11 @@ function App() {
   return (
     <div className="App">
       <h1>RCS - React Clothing Store</h1>
+      <section>
+        <CartProvider>
+          <Cart/>
+        </CartProvider>
+      </section>
 
       <NavBar/>
 
@@ -22,7 +29,9 @@ function App() {
 
       <button onClick={handleClick}>REFRESH DATA</button>
       
-      <ProductCardContainer products={products} />
+      <CartProvider>
+        <ProductCardContainer products={products} />
+      </CartProvider>
 
 
 

@@ -1,0 +1,21 @@
+import React, { useContext } from 'react'
+import { CartContext } from '../../context/CartContext.jsx'
+
+function Cart() {
+
+    const { cart } = useContext(CartContext)
+
+  return (
+    <section>
+        <p>Cart</p>
+        { cart.length > 0 ?
+            cart.map(item =>{
+                return <p>{item.id} - {item.quantity}</p>
+            })
+            : <p>Cart is empty</p>
+        }
+    </section>
+  )
+}
+
+export default Cart

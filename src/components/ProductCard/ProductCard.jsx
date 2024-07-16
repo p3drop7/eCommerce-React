@@ -1,14 +1,15 @@
 import "./ProductCard.css"
 
-function ProductCard({item}) {
+function ProductCard({item, addItem, removeOneItem}) {
   return (
     <article className="productCard">
-        <div className="cardImage" style={{
-          backgroundImage: `url(${item.image})`
-        }} />
-        <h4>{item.title}</h4>
+        <div className="cardImage" style={{ backgroundImage: `url(${item.image})`}} />
+        <h5>{item.title}</h5>
         <p>{item.price}€</p>
-        <p className="productDescription">{item.description}</p>
+        <div>
+          <button onClick={()=> addItem(item)}>+</button>
+          <button onClick={()=> removeOneItem(item)}>-</button>
+        </div>
     </article>
   )
 }
