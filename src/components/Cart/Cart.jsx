@@ -4,6 +4,7 @@ import { CartContext } from '../../context/CartContext.jsx'
 function Cart() {
 
     const { cart } = useContext(CartContext)
+    console.log("CART in cart", cart)
 
   return (
     <section>
