@@ -1,51 +1,35 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer } from "react";
+import { cartReducer, initialCartState } from "../reducers/cartReducer";
 
 export const CartContext = createContext()
 
 export function CartProvider({children}) {
-    const [cart, setCart] = useState([])
+
+    const [state, dispatch] = useReducer(cartReducer, initialCartState)
 
     // Function to add an item to the cart
-    const addItem = (item) => {
-        console.log(cart.find( element => element.id === item.id ))
-        // If the item is in the cart, we add 1 to the item
-        if( cart.find( element => element.id === item.id )){
-            console.log("PASA POR AQUI")
-            const index = cart.findIndex(element => element.id === item.id)
-            const newQuantity = cart[index].quantity + 1
-            cart.splice(index, 1)
-            const newCart = [...cart, {id: item.id, title: item.title, quantity: newQuantity}]
-            setCart(newCart)
-            return
-        }
-
-        // if the item is not in the cart, we add 1 new
-        console.log("PASA POR FINAL")
-        const newCart = [...cart, {id: item.id, title: item.title, quantity: 1}]
-        setCart(newCart)
-    }
+    const addItem = (item) => dispatch({
+        type: 'ADD_ITEM',
+        payload: item
+    })
 
     // Function to remove 1 item counter from the cart
-    const removeOneItem = (item) => {
-        if( cart.find(element => element.id === item.id) ){
-            const index = cart.indexOf(item.id)
-            const newQuantity = cart[index].quantity - 1
-            
-            if(newQuantity === 0){
-                cart.splice(index, 1)
-            }else{
-                cart.splice(index, 1)
-                const newCart = [...cart, {id: item.id, title: item.title, quantity: newQuantity}]
-                setCart(newCart)
-            }
-        }
-    }
+    const removeOneItem = (item) => dispatch({
+        type: 'REMOVE_ITEM',
+        payload: item
+    })
+
+    // Function to empty the items in the cart
+    const empyCart =(item) => dispatch({
+        type: 'EMPTY_CART'
+    })
 
     return (
         <CartContext.Provider value={{
-            cart, 
+            cart: state, 
             addItem,
-            removeOneItem
+            removeOneItem,
+            empyCart
         }}>
             {children}
         </CartContext.Provider>

@@ -12,9 +12,9 @@ function ProductCardContainer({products}) {
         {
             products 
                 ? products.map(item => <ProductCard
-                    key={item.id} 
-                    item={item} 
-                    addItem={addItem}
+                      key={item.id} 
+                      item={item} 
+                      addItem={addItem}
                     /> )
                 : "Loading ..."
         }
