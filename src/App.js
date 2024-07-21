@@ -19,17 +19,15 @@ function App() {
         <section>
           <Cart />
         </section>
-
         <NavBar />
-
         <header id="home-header">HEADER</header>
-
         <ProductCardContainer products={products} />
       </CartProvider>
-
-      <section id="about">ABOUT</section>
-
-      <footer>FOOTER</footer>
+      <footer>
+        <p>
+          Created by Pedro Palencia: <a href="https://github.com/p3drop7" rel="noreferrer" target="_blank">GitHub</a>
+        </p>
+      </footer>
     </div>
   );
 }

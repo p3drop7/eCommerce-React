@@ -41,3 +41,26 @@
     transform: rotate(360deg);
   }
 }
+
+footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+}
+
+footer p {
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: blue;
+  transition: all ease 0.3s;
+}
+
+footer p a:hover {
+  color: white;
+}
