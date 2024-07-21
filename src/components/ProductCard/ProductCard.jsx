@@ -1,6 +1,6 @@
 import "./ProductCard.css"
 
-function ProductCard({item, addItem, removeOneItem}) {
+function ProductCard({item, addItem}) {
   return (
     <article className="productCard">
         <div className="cardImage" style={{ backgroundImage: `url(${item.image})`}} />
@@ -8,7 +8,6 @@ function ProductCard({item, addItem, removeOneItem}) {
         <p>{item.price}€</p>
         <div>
           <button onClick={()=> addItem(item)}>+</button>
-          <button onClick={()=> removeOneItem(item)}>-</button>
         </div>
     </article>
   )

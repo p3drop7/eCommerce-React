@@ -11,7 +11,7 @@ function Cart() {
         <p>Cart</p>
         { cart.length > 0 ?
             cart.map(item =>{
-                return <p>{item.id} - {item.quantity}</p>
+                return <p key={item.id}>{item.title} - {item.quantity}</p>
             })
             : <p>Cart is empty</p>
         }

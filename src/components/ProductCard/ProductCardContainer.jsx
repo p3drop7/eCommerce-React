@@ -5,7 +5,7 @@ import "./ProductCard.css"
 
 function ProductCardContainer({products}) {
 
-  const { addItem, removeOneItem } = useContext(CartContext)
+  const { addItem } = useContext(CartContext)
 
   return (
     <section className='ProductCardContainer'>
@@ -15,7 +15,6 @@ function ProductCardContainer({products}) {
                     key={item.id} 
                     item={item} 
                     addItem={addItem}
-                    removeOneItem={removeOneItem}
                     /> )
                 : "Loading ..."
         }

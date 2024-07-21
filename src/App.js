@@ -17,10 +17,9 @@ function App() {
   return (
     <div className="App">
       <h1>RCS - React Clothing Store</h1>
-      <section>
         <CartProvider>
+      <section>
           <Cart/>
-        </CartProvider>
       </section>
 
       <NavBar/>
@@ -29,7 +28,6 @@ function App() {
 
       <button onClick={handleClick}>REFRESH DATA</button>
       
-      <CartProvider>
         <ProductCardContainer products={products} />
       </CartProvider>
 
