@@ -1,17 +1,29 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext.jsx'
 import { FaShoppingCart } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+import "./Cart.css"
 
 function Cart() {
 
-  const { cart } = useContext(CartContext)
+  const { cart, removeOneItem } = useContext(CartContext)
 
   return (
-    <section>
-        <p>Cart</p>
+    <section className='cart-container'>
         { cart.length > 0 ?
             cart.map(item =>{
-                return <p key={item.id}>{item.title} - {item.quantity}</p>
+                return (
+                  <article className='cart-item' key={item.id}>
+                    <img src={item.image} alt={item.name} />
+                    <div>
+                      <p>{item.title}</p>
+                      <div>
+                        <p>{item.quantity}</p>
+                        <AiFillDelete value={{ style: { verticalAlign: 'bottom' } }} onClick={()=>removeOneItem(item)}/>
+                      </div>
+                    </div>
+                  </article>
+                )
             })
             : <p>Cart is empty</p>
         }

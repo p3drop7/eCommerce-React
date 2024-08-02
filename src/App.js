@@ -4,16 +4,18 @@ import ProductCardContainer from "./components/ProductCard/ProductCardContainer"
 import useProducts from "./data/useProducts";
 import NavBar from "./components/NavBar/NavBar";
 import Cart from "./components/Cart/Cart";
+import { useEffect } from "react";
 
 function App() {
   const { products, refreshProducts } = useProducts();
 
-  const handleLoad = () => {
-    refreshProducts();
-  };
+  useEffect(() => {
+    refreshProducts()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
-    <div className="App" onLoad={handleLoad()}>
+    <div className="App">
       <h1>RCS - React Clothing Store</h1>
       <CartProvider>
         <section>

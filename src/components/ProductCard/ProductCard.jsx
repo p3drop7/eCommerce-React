@@ -1,6 +1,7 @@
 import "./ProductCard.css"
 
 function ProductCard({item, addItem}) {
+  
   return (
     <article className="productCard">
         <div className="cardImage" style={{ backgroundImage: `url(${item.image})`}} />

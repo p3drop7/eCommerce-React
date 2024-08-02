@@ -6,6 +6,7 @@ export const CartContext = createContext()
 export function CartProvider({children}) {
 
     const [state, dispatch] = useReducer(cartReducer, initialCartState)
+    
 
     // Function to add an item to the cart
     const addItem = (item) => dispatch({
