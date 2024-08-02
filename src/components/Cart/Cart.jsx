@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../context/CartContext.jsx'
+import { FaShoppingCart } from "react-icons/fa";
 
 function Cart() {
 
@@ -14,6 +15,10 @@ function Cart() {
             })
             : <p>Cart is empty</p>
         }
+        <div>
+          <FaShoppingCart />
+          <p>{cart.length}</p>
+        </div>
     </section>
   )
 }
