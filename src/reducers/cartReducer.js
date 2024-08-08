@@ -7,10 +7,13 @@ export const cartReducer = (state, action) => {
         case 'ADD_ITEM': {
 
             if( state.find( item => item.id === action.payload.id )){
-                const index = state.findIndex(item => item.id === action.payload.id)
-                const newQuantity = state[index].quantity + 1
-                state.splice(index, 1)
-                const newCart = [...state, {id: action.payload.id, title: action.payload.title, image: action.payload.image, category: action.payload.category, quantity: newQuantity}]
+
+                const newCart = state.map(item => {
+                    if(item.id === action.payload.id){
+                        item.quantity = item.quantity + 1
+                    }
+                    return item
+                })
                 return newCart
             }
             
@@ -20,25 +23,17 @@ export const cartReducer = (state, action) => {
         }
 
         case 'REMOVE_ITEM': {
-            if( state.find(item => item.id === action.payload.id) ){
-                
-                const index = state.indexOf(action.payload)
-                const newQuantity = state[index].quantity - 1
-                
-                if(newQuantity === 0){
-                    state.splice(index, 1)
-                    const newCart = state
-                    return newCart
-                }else{
-                    console.log("AQUI")
-                    state.splice(index, 1)
-                    const newCart = [...state, {id: action.payload.id, title: action.payload.title, image: action.payload.image, category: action.payload.category, quantity: newQuantity}]
-                    return newCart
+            const newCart = state.map(item => {
+                if(item.id === action.payload.id){
+                    item.quantity = item.quantity -1
+                    return item
+                } else {
+                    return item
                 }
-            }
-            break
-        }
-
+            }).filter(item => item.quantity !== 0)
+            return newCart
+        }    
+        
         case 'EMPY_CART': {
             state = initialCartState
             break
