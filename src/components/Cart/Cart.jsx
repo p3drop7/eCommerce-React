@@ -23,7 +23,7 @@ function Cart({handleClick}) {
                         <p>{item.title}</p>
                         <div className="item-quantity"> 
                           <p>{item.quantity}</p>
-                          <AiFillDelete onClick={()=>removeOneItem(item)}/>
+                          <AiFillDelete className='delete-icon' onClick={()=>removeOneItem(item)}/>
                         </div>
                       </div>
                     </article>

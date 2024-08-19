@@ -65,3 +65,7 @@
 .item-quantity p {
     margin-right: 5px;
 }
+
+.delete-icon {
+    cursor: pointer;
+}

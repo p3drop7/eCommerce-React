@@ -5,17 +5,23 @@ import Cart from './Cart.jsx';
 
 function CartIcon() {
     const { cart } = useContext(CartContext)
-
     const [visibility, setVisibility] = useState(false)
 
     const handleClick =()=> {
         setVisibility(!visibility)
-        console.log(visibility)
+    }
+
+    const getCartLength =()=>{
+      let cartLength = 0
+      cart.forEach(item => {
+        cartLength = cartLength + item.quantity
+      })
+      return cartLength
     }
 
   return (
     <div className='cart-container'>
-        <FaShoppingCart className='cart-icon' onClick={handleClick} /> {cart.length}
+        <FaShoppingCart className='cart-icon' onClick={handleClick} /> {getCartLength()}
         {
             visibility === true ? <Cart handleClick={handleClick}/> : null
         }

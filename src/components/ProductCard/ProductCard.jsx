@@ -8,7 +8,7 @@ function ProductCard({item, addItem}) {
         <h5>{item.title}</h5>
         <p>{item.price}€</p>
         <div>
-          <button onClick={()=> addItem(item)}>+</button>
+          <button className="add-button" onClick={()=> addItem(item)}>+</button>
         </div>
     </article>
   )
