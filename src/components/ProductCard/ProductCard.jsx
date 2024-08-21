@@ -1,4 +1,5 @@
 import "./ProductCard.css"
+import { BiCartAdd } from "react-icons/bi";
 
 function ProductCard({item, addItem}) {
   
@@ -7,9 +8,7 @@ function ProductCard({item, addItem}) {
         <div className="cardImage" style={{ backgroundImage: `url(${item.image})`}} />
         <h5>{item.title}</h5>
         <p>{item.price}€</p>
-        <div>
-          <button className="add-button" onClick={()=> addItem(item)}>+</button>
-        </div>
+        <BiCartAdd className="add-button" onClick={()=> addItem(item)}/>
     </article>
   )
 }
