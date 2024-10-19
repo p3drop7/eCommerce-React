@@ -1,4 +1,4 @@
-.cart-list-container {
+.cart-list-container-visibility-true {
     margin: 0;
     padding: 10px 20px 100px 20px;
     height: 100vh;
@@ -11,7 +11,25 @@
     right: 0%;
     color: white;
     background-color: rgb(13, 17, 23);
-    overflow-y: auto
+    overflow-y: auto;
+    transition: right 0.3s ease;
+}
+
+.cart-list-container-visibility-false {
+    margin: 0;
+    padding: 10px 20px 100px 20px;
+    height: 100vh;
+    width: 40%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0%;
+    right: -50%;
+    color: white;
+    background-color: rgb(13, 17, 23);
+    overflow-y: auto;
+    transition: right 0.3s ease;
 }
 
 .cart-icon {

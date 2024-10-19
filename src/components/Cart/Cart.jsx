@@ -4,13 +4,13 @@ import { AiFillDelete } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import "./Cart.css"
 
-function Cart({handleClick}) {
+function Cart() {
 
-  const { cart, removeOneItem } = useContext(CartContext)
+  const { cart, removeOneItem, cartVisibility, changeCartVisibility } = useContext(CartContext)
 
   return (
-    <section className='cart-list-container'>
-      <IoMdClose className='close-icon' onClick={handleClick}/>
+    <section className={ cartVisibility === true ? "cart-list-container-visibility-true" : "cart-list-container-visibility-false"}>
+      <IoMdClose className='close-icon' onClick={changeCartVisibility}/>
       <h4>Your Cart</h4>
           { cart.length > 0 ?
               cart.map(item =>{

@@ -1,10 +1,11 @@
-import "./App.css";
+import { useEffect } from "react";
 import { CartProvider } from "./context/CartContext.jsx";
 import ProductCardContainer from "./components/ProductCard/ProductCardContainer";
+import Cart from "./components/Cart/Cart.jsx";
+import CartIcon from "./components/Cart/CartIcon.jsx";
 import useProducts from "./data/useProducts";
 import NavBar from "./components/NavBar/NavBar";
-import { useEffect } from "react";
-import CartIcon from "./components/Cart/CartIcon.jsx";
+import "./App.css";
 
 function App() {
   const { products, refreshProducts } = useProducts();
@@ -16,12 +17,12 @@ function App() {
 
   return (
     <div className="App">
-
       <CartProvider>
         <header>
           <section>
             <h1>RCS - React Clothing Store</h1>
             <CartIcon />
+            <Cart />
           </section>
           <NavBar />
         </header>

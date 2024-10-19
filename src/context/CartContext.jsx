@@ -1,4 +1,4 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import { cartReducer, initialCartState } from "../reducers/cartReducer";
 
 export const CartContext = createContext()
@@ -6,6 +6,7 @@ export const CartContext = createContext()
 export function CartProvider({children}) {
 
     const [state, dispatch] = useReducer(cartReducer, initialCartState)
+    const [cartVisibility, setCartVisibility] = useState(false)
     
 
     // Function to add an item to the cart
@@ -21,16 +22,23 @@ export function CartProvider({children}) {
     })
 
     // Function to empty the items in the cart
-    const empyCart =(item) => dispatch({
+    const emptyCart =(item) => dispatch({
         type: 'EMPTY_CART'
     })
+
+    // Function to change the cart list visibility
+    const changeCartVisibility = () => {
+        setCartVisibility(!cartVisibility)
+    }
 
     return (
         <CartContext.Provider value={{
             cart: state, 
             addItem,
             removeOneItem,
-            empyCart
+            emptyCart,
+            cartVisibility,
+            changeCartVisibility
         }}>
             {children}
         </CartContext.Provider>
