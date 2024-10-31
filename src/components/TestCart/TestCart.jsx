@@ -3,12 +3,13 @@ import { TestCartContext } from './TestCartContext'
 
 function TestCart() {
 
-    const {testCart, getTestCart} = useContext(TestCartContext)
+    const {testCart} = useContext(TestCartContext)
 
   return (
     <div>
         <h1>Test Cart</h1>
-        <button onClick={getTestCart}>BD</button>
+        {//<button onClick={getTestCart}>BD</button>
+        }
         <div>{testCart}</div>
     </div>
   )

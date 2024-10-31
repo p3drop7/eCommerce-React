@@ -8,15 +8,9 @@ function Cart() {
 
   const { cart, removeOneItem, cartVisibility, changeCartVisibility } = useContext(CartContext)
 
-  
-  const handleCLick =()=>{
-    console.log(cart)
-  }
-
   return (
     <section className={ cartVisibility === true ? "cart-list-container-visibility-true" : "cart-list-container-visibility-false"}>
       <IoMdClose className='close-icon' onClick={changeCartVisibility}/>
-      <button onClick={handleCLick}>GET DB</button>
       <h4>Your Cart</h4>
           { cart.length > 0 ?
               cart.map(item =>{

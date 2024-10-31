@@ -15,6 +15,8 @@ export function TestCartProvider({children}){
             .catch(error => console.log(error))
     }
 
+    getTestCart()
+
     return(
         <TestCartContext.Provider value={{testCart, setTestCart, getTestCart}}>
             {children}
