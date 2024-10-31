@@ -1,11 +1,9 @@
 export const initialCartState = []
 
 export const cartReducer = (state, action) => {
-
     switch (action.type) {
         
         case 'ADD_ITEM': {
-
             if( state.find( item => item.id === action.payload.id )){
 
                 const newCart = state.map(item => {

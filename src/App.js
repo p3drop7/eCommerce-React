@@ -6,6 +6,8 @@ import CartIcon from "./components/Cart/CartIcon.jsx";
 import useProducts from "./data/useProducts";
 import NavBar from "./components/NavBar/NavBar";
 import "./App.css";
+import TestCart from "./components/TestCart/TestCart.jsx";
+import { TestCartProvider } from "./components/TestCart/TestCartContext.jsx";
 
 function App() {
   const { products, refreshProducts } = useProducts();
@@ -24,6 +26,11 @@ function App() {
             <CartIcon />
             <Cart />
           </section>
+
+          <TestCartProvider>
+            <TestCart />
+          </TestCartProvider>
+          
           <NavBar />
         </header>
         <ProductCardContainer products={products} />
