@@ -8,8 +8,8 @@ import NavBar from "./components/NavBar/NavBar";
 import "./App.css";
 import TestCart from "./components/TestCart/TestCart.jsx";
 import { TestCartProvider } from "./components/TestCart/TestCartContext.jsx";
-import UserProfileContainer from "./components/UserProfile/UserProfileContainer.jsx";
 import UserAuthContainer from "./components/UserAuth/UserAuthContainer.jsx";
+import { UserProvider } from "./context/UserContext.jsx";
 
 function App() {
   const { products, refreshProducts } = useProducts();
@@ -32,9 +32,10 @@ function App() {
           <TestCartProvider>
             <TestCart />
           </TestCartProvider>
-
-          <UserAuthContainer/>
-          <UserProfileContainer/>
+          
+          <UserProvider>
+            <UserAuthContainer/>
+          </UserProvider>
           
           <NavBar />
         </header>
