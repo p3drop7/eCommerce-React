@@ -1,0 +1,46 @@
+.auth-form {
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.logIn-form {
+    width: 80%;
+    max-width: 300px;
+    padding: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.logIn-form div {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    padding: 10px 0px 10px 0px;
+}
+
+.logIn-form div label {
+    text-align: left;
+    width: 100px;
+}
+
+.logIn-form div input {
+    max-width: 290px;
+    width: 100%;
+}
+
+.login-submit {
+    margin: 20px 0 10px 0;
+    padding: 5px 0 5px 0;
+    width: 100%;
+    max-width: 120px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
