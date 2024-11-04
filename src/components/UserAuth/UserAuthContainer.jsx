@@ -12,6 +12,7 @@ function UserAuthContainer() {
     <div className='auth-form'>
       <h2>AUTHENTICATION</h2>
       { user ? <UserProfile logout={logout}/> : <UserLogIn login={login} /> }
+      <p>USER: {user}</p>
     </div>
   )
 }

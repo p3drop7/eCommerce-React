@@ -8,16 +8,13 @@ function UserLogIn({login}) {
 
   const handleClick =(event)=> {
     event.preventDefault()
-    const userData = {userNameData: userName.target.value, userPassData: passValue.target.value}
+    const userData = {
+      userNameData: userName.target.value, 
+      userPassData: passValue.target.value
+    }
+    
     login(userData)
   }
-
-    /*
-  useEffect(() => {
-    if (userName) console.log(userName.target.value)
-      if (passValue) console.log(passValue.target.value)
-  }, [userName, passValue])
-  */
 
   return (
     <form className='logIn-form' action="#">

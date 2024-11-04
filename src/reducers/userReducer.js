@@ -4,66 +4,62 @@ import { database } from "../data/useFirebase"
 export const initialCartState = false
 
 export function userReducer(state, action) {
+    //console.log(action)
     switch (action.type) {
 
-       /* case 'LOG-IN': {
-            console.log("AQUI")
-            async function getData() {
-
-                
-
-                const db = await action.payload.getDB()
-
-                if (action.payload.user.username in db) {
-                    if (action.payload.user.pass === db.username.pass) {
-                        return db.username
-                    } else {
-                        return "Password is incorrect"
-                    }
-                } else {
-                    return "The user is not registered"
-                }
-            }
-            return getData()
-        } */
-
-
         case 'LOG_IN': {
-
-            async function getDB(){
-                let db
-                await get( child (database, "users/") )
-                    .then(res => res.val())
-                    .then(res => db = res)
-                    .catch(error => console.log(error))
-                return db
-            }
             
-            const db = getDB()
+            async function getData() {
+                try{
+                    const response = await get( child (database, "users/") )
+                    const dataSnapshot = response.val()
+                    const data = [dataSnapshot, action.payload.user]
+                    action.payload.setAsyncRes(data)
 
-            /*const async db =()=>{
-                let hh
-                get( child (database, "users/") )
-                    .then(res => res.val())
-                    .then(res => hh = res)
-                    .catch(error => console.log(error))
-                console.log(hh)
-            }
-            console.log(db())*/
-            
-            if (action.payload.userNameData in db) {
-                if (action.payload.userPassData === db.userName.pass) {
-                    return db.username
-                } else {
-                    return "Password is incorrect"
+                } catch (error) {
+                    console.log("ERROR! ," + error)
                 }
-            } else {
-                return "The user is not registered"
             }
+            
+            // THIS DOESN'T WORK BECAUSE THE ASYNC FUNCTION ALWAYS RETURNS A PROMISE
+            // IF WE STORE THE RESPONSE OF A PROMISE OUTSIDE THE ASYNC FUNCTION IN A VARIABLE IT WON'T WORK EITHER...
+            // BECAUSE THE JAVASCRIPT EXCUSTION DOESN'T STOP OUTSIDE THE FUNCTION SO THE VARIBLE'S VALUE WILL BE CALLED...
+            // DEFORE THE COMPLETION OF THE PROMISE, THIS THE VARIABLE WLL BE UNDEFINED.
+            // CHECK IF REDUX // USEDISPATCH // STORE WILL RESOLVE IT SINCE IT STORES ASYNC DATA IN AN ASYC STORE 
+            // CHECK ALSO REDUCE-THUNK MIDDLEWARE
+            getData()
+            return 
+
         }
 
         case 'LOG_OUT': {
             return false
+        }
+
+        case 'OTHER': {
+
+            // If there is info in action.payload from the Database
+            if (action.payload.length > 1) {
+
+                // Get the database info stored in the first position of the array from the payload
+                const usersDataInDB = action.payload[0]
+
+                // Get the info of the user in the database with the details of the user typed in the log in form ( payload[1] )
+                const userWithUsernameInDB = usersDataInDB[action.payload[1].userNameData]
+   
+
+                if(userWithUsernameInDB) {
+                    // eslint-disable-next-line eqeqeq
+                    if(userWithUsernameInDB.pass == action.payload[1].userPassData){
+                       return userWithUsernameInDB.email
+                    }else{
+                        return "Pasword incorrect"
+                    }
+                }else{
+                    return "User not registered"
+                }
+            }
+            return
         }
 
         default: {
