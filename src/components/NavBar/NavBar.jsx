@@ -1,5 +1,6 @@
 import React from "react";
 import "./NavBar.css"
+import UserAuthContainer from "../UserAuth/UserAuthContainer";
 
 function Nav() {
   return (
@@ -15,6 +16,7 @@ function Nav() {
         <li>
           <a href="about">About</a>
         </li>
+        <UserAuthContainer/>
       </ul>
     </nav>
   );

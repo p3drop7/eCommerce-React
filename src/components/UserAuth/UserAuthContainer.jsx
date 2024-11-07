@@ -10,9 +10,11 @@ function UserAuthContainer() {
 
   return (
     <div className='auth-form'>
-      <h2>AUTHENTICATION</h2>
-      { user ? <UserProfile logout={logout}/> : <UserLogIn login={login} /> }
-      <p>USER: {user}</p>
+      { 
+        ( user === false || user === undefined || user === "Incorrect Pasword" || user === "User not registered")
+          ? <UserLogIn login={login} user={user}/>
+          : <UserProfile user={user} logout={logout} login={login}/> 
+      }
     </div>
   )
 }

@@ -6,6 +6,15 @@
     align-items: center;
 }
 
+.log-in-form-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0%;
+    left: 0%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
 .logIn-form {
     width: 80%;
     max-width: 300px;
@@ -16,6 +25,11 @@
     justify-content: center;
     border: 1px solid black;
     border-radius: 10px;
+    background-color: white;
+}
+
+.logIn-form h2 {
+    margin: 0
 }
 
 .logIn-form div {
@@ -43,4 +57,27 @@
     max-width: 120px;
     border: 1px solid black;
     border-radius: 10px;
+}
+
+.user-profile-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-profile-container p {
+    align-items: center;
+}
+
+.user-profile-container p span {
+    font-weight: bolder;
+}
+
+.user-profile-container button {
+    margin-left: 10px
+}
+
+.error-credentials {
+    color: red;
 }

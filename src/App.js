@@ -21,6 +21,7 @@ function App() {
 
   return (
     <div className="App">
+      <UserProvider>
       <CartProvider>
         <header>
           <section>
@@ -33,14 +34,11 @@ function App() {
             <TestCart />
           </TestCartProvider>
           
-          <UserProvider>
-            <UserAuthContainer/>
-          </UserProvider>
-          
           <NavBar />
         </header>
         <ProductCardContainer products={products} />
       </CartProvider>
+      </UserProvider>
 
       <footer>
         <p>

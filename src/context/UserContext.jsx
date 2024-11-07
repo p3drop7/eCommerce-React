@@ -29,7 +29,6 @@ export function UserProvider({children}) {
         // with the value of the response from the promise. This was made this way because it was impossible to return...
         // a value with a async function, since async functions only return promises and not the response.
         // It can be made with a useDispatch, or a middleware like react-thunk with a global state
-
     })
 
     // Fuintion to log out

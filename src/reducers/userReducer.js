@@ -27,9 +27,9 @@ export function userReducer(state, action) {
             // DEFORE THE COMPLETION OF THE PROMISE, THIS THE VARIABLE WLL BE UNDEFINED.
             // CHECK IF REDUX // USEDISPATCH // STORE WILL RESOLVE IT SINCE IT STORES ASYNC DATA IN AN ASYC STORE 
             // CHECK ALSO REDUCE-THUNK MIDDLEWARE
+
             getData()
             return 
-
         }
 
         case 'LOG_OUT': {
@@ -53,7 +53,7 @@ export function userReducer(state, action) {
                     if(userWithUsernameInDB.pass == action.payload[1].userPassData){
                        return userWithUsernameInDB.email
                     }else{
-                        return "Pasword incorrect"
+                        return "Incorrect Pasword"
                     }
                 }else{
                     return "User not registered"

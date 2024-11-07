@@ -1,14 +1,12 @@
 import './UserAuth.css'
 
-function UserProfile() {
+function UserProfile({user, logout, login}) {
 
-
-  
     return (
-      <div>
-          <p>Username</p>
-          <p>Email</p>
-      </div>
+      <section className='user-profile-container'>
+        <p>Welcome <span>{user}</span></p>
+        <button onClick={logout}>Log Out</button>
+      </section>
     )
   }
   
