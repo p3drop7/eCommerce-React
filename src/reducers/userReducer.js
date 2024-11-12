@@ -4,7 +4,7 @@ import { database } from "../data/useFirebase"
 export const initialCartState = false
 
 export function userReducer(state, action) {
-    //console.log(action)
+
     switch (action.type) {
 
         case 'LOG_IN': {
@@ -29,7 +29,7 @@ export function userReducer(state, action) {
             // CHECK ALSO REDUCE-THUNK MIDDLEWARE
 
             getData()
-            return 
+            return
         }
 
         case 'LOG_OUT': {
@@ -51,7 +51,10 @@ export function userReducer(state, action) {
                 if(userWithUsernameInDB) {
                     // eslint-disable-next-line eqeqeq
                     if(userWithUsernameInDB.pass == action.payload[1].userPassData){
-                       return userWithUsernameInDB.email
+                       return {
+                            userEmail: userWithUsernameInDB.email,
+                            userName: action.payload[1].userNameData
+                       }
                     }else{
                         return "Incorrect Pasword"
                     }

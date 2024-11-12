@@ -1,8 +1,15 @@
-export const initialCartState = []
+export const initialCartState = null
 
 export const cartReducer = (state, action) => {
 
     switch (action.type) {
+
+        case 'GET_CART' : {
+            if( action.payload.user in action.payload.response){
+                return action.payload.response[action.payload.user]
+            }
+            break
+        }
         
         case 'ADD_ITEM': {
             if( state.find( item => item.id === action.payload.id )){

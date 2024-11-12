@@ -14,11 +14,11 @@ function CartContainer() {
     <section className={ cartVisibility === true ? "cart-list-container-visibility-true" : "cart-list-container-visibility-false"}>
       <IoMdClose className='close-icon' onClick={changeCartVisibility}/>
       <h4>Your Cart</h4>
-        <div>
+        <div className='cart-list-container'>
             {
                 ( user === false || user === undefined || user === "Incorrect Pasword" || user === "User not registered")
                     ? <button onClick={login}>Log in</button>
-                    : <Cart cart={cart} removeOnceItem={removeOneItem}/>
+                    : <Cart cart={cart} removeOneItem={removeOneItem}/>
             }
         </div>
     </section>

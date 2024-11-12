@@ -1,27 +1,33 @@
 import { AiFillDelete } from "react-icons/ai";
 import "./Cart.css"
 
-function Cart(cart, removeOneItem) {
+function Cart({cart, removeOneItem}) {
 
   return (
     <>
-      { cart.length > 0 ?
-          cart.map(item =>{
+      {
+        cart 
+          ? cart.products.map(item => {
             return (
               <article className='cart-item' key={item.id}>
+                
                 <div className='cart-item-image-container'>
-                  <img src={item.image} alt={item.name} />
+                  <img src={item.image} alt={item.title} />
                 </div>
+                
                 <div className='cart-item-description-container'>
                   <p>{item.title}</p>
                   <div className="item-quantity"> 
-                    <p>{item.quantity}</p>
+                    <p>{item.quantity} X €{item.price}</p>
+                    <p>Total: {item.total}</p>
                     <AiFillDelete className='delete-icon' onClick={()=>removeOneItem(item)}/>
                   </div>
-                  </div>
+                </div>
+
               </article>
-          )})
-        : <p>Your cart is empty</p>
+            )
+          })
+          : <p>Your cart is empty</p>
       }
     </>
   )
