@@ -17,7 +17,15 @@ export const cartReducer = (state, action) => {
             }
             
             // if the item is not in the cart, we add 1 new
-            const newCart = [...state, {id: action.payload.id, title: action.payload.title, image: action.payload.image, category: action.payload.category, quantity: 1}]
+            const newCart = [ 
+                ...state, 
+                {
+                    id: action.payload.id, 
+                    title: action.payload.title, 
+                    image: action.payload.image, 
+                    category: action.payload.category, 
+                    quantity: 1
+                }]
             return newCart
         }
 

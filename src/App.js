@@ -1,15 +1,14 @@
 import { useEffect } from "react";
-import { CartProvider } from "./context/CartContext.jsx";
-import ProductCardContainer from "./components/ProductCard/ProductCardContainer";
-import Cart from "./components/Cart/Cart.jsx";
-import CartIcon from "./components/Cart/CartIcon.jsx";
-import useProducts from "./data/useProducts";
-import NavBar from "./components/NavBar/NavBar";
-import "./App.css";
-import TestCart from "./components/TestCart/TestCart.jsx";
-import { TestCartProvider } from "./components/TestCart/TestCartContext.jsx";
-import UserAuthContainer from "./components/UserAuth/UserAuthContainer.jsx";
 import { UserProvider } from "./context/UserContext.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
+import { TestCartProvider } from "./components/TestCart/TestCartContext.jsx";
+import ProductCardContainer from "./components/ProductCard/ProductCardContainer";
+import NavBar from "./components/NavBar/NavBar";
+import CartContainer from "./components/Cart/CartContainer.jsx";
+import useProducts from "./data/useProducts";
+import TestCart from "./components/TestCart/TestCart.jsx";
+import CartIcon from "./components/Cart/CartIcon.jsx";
+import "./App.css";
 
 function App() {
   const { products, refreshProducts } = useProducts();
@@ -27,7 +26,7 @@ function App() {
           <section>
             <h1>RCS - React Clothing Store</h1>
             <CartIcon />
-            <Cart />
+            <CartContainer />
           </section>
 
           <TestCartProvider>
