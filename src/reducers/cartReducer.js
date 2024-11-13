@@ -94,14 +94,37 @@ export const cartReducer = (state, action) => {
         }
 
         case 'REMOVE_ITEM': {
-            const newCart = state.map(item => {
+            
+            const newProdList = state.products.map(item => {
                 if(item.id === action.payload.id){
-                    item.quantity = item.quantity -1
-                    return item
-                } else {
-                    return item
+                    item.quantity = item.quantity - 1
                 }
-            }).filter(item => item.quantity !== 0)
+                if(item.quantity === 0){
+                    return null
+                }
+                return item
+            })
+
+            const newCleanProdList = newProdList.filter(item => item !== null)
+
+            let newTotalPrice = 0
+            newCleanProdList.forEach(item => {
+                newTotalPrice = newTotalPrice + item.total
+            })
+            newTotalPrice = newTotalPrice.toFixed(2)
+
+            let newTotalQuantity = 0
+            newCleanProdList.forEach(item => {
+                newTotalQuantity = newTotalQuantity + item.quantity
+            })
+
+            const newCart = {
+                products: newCleanProdList,
+                totalQuantity: newTotalPrice,
+                totalPrice: newTotalQuantity
+            }
+
+            if(newCart.products.length === 0) return initialCartState
             return newCart
         }    
         
