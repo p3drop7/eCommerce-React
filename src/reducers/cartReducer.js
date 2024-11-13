@@ -12,12 +12,32 @@ export const cartReducer = (state, action) => {
         }
         
         case 'ADD_ITEM': {
-            if( state.products.find(item => item.id === action.payload.id) ) {
+
+            if(!state){
+                const newItem = {
+                    id: action.payload.id,
+                    title: action.payload.title,
+                    image: action.payload.image,
+                    price: action.payload.price,
+                    quantity: 1,
+                    total: action.payload.price
+                }
+
+                const newCart = {
+                    products: [newItem],
+                    totalQuantity: 1,
+                    totalPrice: action.payload.price
+                }
+                return newCart
+
+            }else if( state.products.find(item => item.id === action.payload.id) ) {
                 
                 const newItems = state.products.map(item => {
                     if(item.id === action.payload.id){
-                        item.quantity = item.quantity + 1
-                        item.total = item.quantity * item.price
+                        const newProdQuantity = item.quantity + 1
+                        const newProdTotal = newProdQuantity * item.price
+                        item.quantity = newProdQuantity
+                        item.total = newProdTotal
                     }
                     return item
                 })
@@ -26,7 +46,7 @@ export const cartReducer = (state, action) => {
                 newItems.forEach(item => {
                     newTotalPrice = newTotalPrice + item.total
                 })
-                newTotalPrice.toFixed(2)
+                newTotalPrice = newTotalPrice.toFixed(2)
 
                 let newTotalQuantity = 0
                 newItems.forEach(item => {
@@ -41,10 +61,6 @@ export const cartReducer = (state, action) => {
                 return newCart
                 
             }else{
-
-                console.log("PAYLOAD")
-                console.log(action.payload)
-
                 const newItem = {
                     id: action.payload.id,
                     title: action.payload.title,
@@ -54,15 +70,27 @@ export const cartReducer = (state, action) => {
                     total: action.payload.price
                 }
 
-                console.log("NEW ITEM")
-                console.log(newItem)
+                const newItemList = [...state.products, newItem]
 
-                /* const newCart = {
-                    products: [...state.products, ],
-                } */
+                let newTotalPrice = 0
+                newItemList.forEach(item => {
+                    newTotalPrice = newTotalPrice + item.total
+                })
+                newTotalPrice = newTotalPrice.toFixed(2)
+
+                let newTotalQuantity = 0
+                newItemList.forEach(item => {
+                    newTotalQuantity = newTotalQuantity + item.quantity
+                })
+
+                const newCart = {
+                    products: [...state.products, newItem],
+                    totalQuantity: newTotalPrice,
+                    totalPrice: newTotalQuantity
+                }
+
+                return newCart
             }
-
-            return state
         }
 
         case 'REMOVE_ITEM': {
