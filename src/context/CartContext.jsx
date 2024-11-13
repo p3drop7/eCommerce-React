@@ -25,13 +25,19 @@ export function CartProvider({children}) {
         }
     }, [user])
 
+    useEffect(() => {
+      console.log("STATE")
+      console.log(state)
+    }, [state])
+    
+
     const getCart = (response, user) => dispatch({
         type: "GET_CART",
         payload: {response, user}
     })
 
     // Function to add an item to the cart
-    const addItem = (item) => dispatch({
+    const addItem = (item, state) => dispatch({
         type: 'ADD_ITEM',
         payload: item
     })
