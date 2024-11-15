@@ -132,7 +132,6 @@ export const cartReducer = (state, action) => {
         }    
         
         case 'EMPTY_CART': {
-            console.log("AQUI")
             return initialCartState
         }
 

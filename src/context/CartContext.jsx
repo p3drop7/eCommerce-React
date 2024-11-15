@@ -17,7 +17,7 @@ export function CartProvider({children}) {
     // Get the cart on the first render if there is any
     useEffect(() => {
         if ( user === null || user === undefined || user === "Incorrect Pasword" || user === "User not registered"){
-            return
+            emptyCart()
         } else {
             get( child ( ref(database), "carts/"))
                 .then(res => res.val())
