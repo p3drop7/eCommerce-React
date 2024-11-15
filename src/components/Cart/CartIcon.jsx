@@ -7,10 +7,10 @@ function CartIcon() {
     const { cart, changeCartVisibility } = useContext(CartContext)
 
   return (
-    <>
+    <div className='cartIcon-container' onClick={changeCartVisibility}>
       <p>{cart ? cart.totalQuantity : 0}</p>
-      <FaShoppingCart className='cart-icon' onClick={changeCartVisibility} />
-    </>
+      <FaShoppingCart className='cartIcon'/>
+    </div>
   )
 }
 

@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar/NavBar";
 import CartContainer from "./components/Cart/CartContainer.jsx";
 import useProducts from "./data/useProducts";
 import CartIcon from "./components/Cart/CartIcon.jsx";
+import logoStore from "./images/logoStore.png"
 import "./App.css";
 
 function App() {
@@ -23,15 +24,15 @@ function App() {
 
         <header>
           <section>
-            <h1>RCS - React Clothing Store</h1>
+            <img src={logoStore} alt="logo" className="logo"/>
             <CartIcon />
             <CartContainer />
           </section>
-
-          
           <NavBar />
         </header>
+
         <ProductCardContainer products={products} />
+      
       </CartProvider>
       </UserProvider>
 

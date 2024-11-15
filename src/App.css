@@ -45,13 +45,22 @@
 header {
   background-color: violet;
   width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 header section {
+  width: 80%;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
+}
+
+.logo {
+  height: 70px;
 }
 
 footer {

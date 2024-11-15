@@ -44,8 +44,18 @@ h3 {
     margin: 0
 }
 
-.close-icon {
-    font-size: 2em;
+.cartIcon-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.cartIcon-container p {
+    margin: 0 5px 0 20px;
+    cursor: pointer
+}
+
+.cartIcon {
+    font-size: 1.5em;
     align-self: flex-start;
     cursor: pointer;
 }

@@ -4,23 +4,6 @@ nav{
     display: flex;
     flex-flow: row nowrap;
     background-color: blue;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-}
-
-nav ul {
-    width: 50%;
-    display: flex;
-    flex-direction: row nowrap;
-    justify-content: space-evenly;
-    list-style: none;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: initial;
-}
-
-.logo {
-    width: 50%;
 }
