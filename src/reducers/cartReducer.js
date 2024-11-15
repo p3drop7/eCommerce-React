@@ -5,10 +5,13 @@ export const cartReducer = (state, action) => {
     switch (action.type) {
 
         case 'GET_CART' : {
-            if( action.payload.user in action.payload.response){
+            if(!action.payload.response || action.payload.response === undefined) {
+                return null
+            } else if( action.payload.user in action.payload.response){
                 return action.payload.response[action.payload.user]
+            } else {
+                return null
             }
-            break
         }
         
         case 'ADD_ITEM': {
@@ -85,8 +88,8 @@ export const cartReducer = (state, action) => {
 
                 const newCart = {
                     products: [...state.products, newItem],
-                    totalQuantity: newTotalPrice,
-                    totalPrice: newTotalQuantity
+                    totalQuantity: newTotalQuantity,
+                    totalPrice: newTotalPrice
                 }
 
                 return newCart
@@ -120,17 +123,17 @@ export const cartReducer = (state, action) => {
 
             const newCart = {
                 products: newCleanProdList,
-                totalQuantity: newTotalPrice,
-                totalPrice: newTotalQuantity
+                totalQuantity: newTotalQuantity,
+                totalPrice: newTotalPrice
             }
 
             if(newCart.products.length === 0) return initialCartState
             return newCart
         }    
         
-        case 'EMPY_CART': {
-            state = initialCartState
-            break
+        case 'EMPTY_CART': {
+            console.log("AQUI")
+            return initialCartState
         }
 
         default: {

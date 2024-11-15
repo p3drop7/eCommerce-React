@@ -1,7 +1,7 @@
 // SDK functions needed
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref } from "firebase/database";
+import { getDatabase } from "firebase/database";
 
 const DATABASE_URL = "https://rcs-react-clothing-store-default-rtdb.europe-west1.firebasedatabase.app/"
 
@@ -24,4 +24,4 @@ const firebaseConfig = {
 
 // Initialize Firebase
 initializeApp(firebaseConfig);
-export const database = ref(getDatabase())
+export const database = getDatabase()

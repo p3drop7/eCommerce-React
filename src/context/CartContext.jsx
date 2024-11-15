@@ -1,6 +1,6 @@
 import React, { createContext, useReducer, useState, useEffect, useContext } from "react";
 import { cartReducer, initialCartState } from "../reducers/cartReducer";
-import { child, get } from "firebase/database";
+import { child, get, set, ref } from "firebase/database";
 import { database } from "../data/useFirebase";
 import { UserContext } from "./UserContext";
 
@@ -14,23 +14,26 @@ export function CartProvider({children}) {
     const [state, dispatch] = useReducer (cartReducer, initialCartState)
     const { user } = useContext(UserContext)
 
+    // Get the cart on the first render if there is any
     useEffect(() => {
-        if ( user === false || user === undefined || user === "Incorrect Pasword" || user === "User not registered"){
+        if ( user === null || user === undefined || user === "Incorrect Pasword" || user === "User not registered"){
             return
         } else {
-            get( child (database, "carts/"))
+            get( child ( ref(database), "carts/"))
                 .then(res => res.val())
                 .then(res => getCart(res, user.userName))
                 .catch(error => console.log(error))
         }
     }, [user])
 
+    // Update the cart in Firebase database when there is any change
     useEffect(() => {
-      console.log("STATE")
-      console.log(state)
+        if(user){
+            set(ref(database, 'carts/' + user.userName), state)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state])
     
-
     const getCart = (response, user) => dispatch({
         type: "GET_CART",
         payload: {response, user}
@@ -49,7 +52,7 @@ export function CartProvider({children}) {
     })
 
     // Function to empty the items in the cart
-    const emptyCart =(item) => dispatch({
+    const emptyCart =() => dispatch({
         type: 'EMPTY_CART'
     })
 

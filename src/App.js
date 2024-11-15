@@ -1,12 +1,10 @@
 import { useEffect } from "react";
 import { UserProvider } from "./context/UserContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
-import { TestCartProvider } from "./components/TestCart/TestCartContext.jsx";
 import ProductCardContainer from "./components/ProductCard/ProductCardContainer";
 import NavBar from "./components/NavBar/NavBar";
 import CartContainer from "./components/Cart/CartContainer.jsx";
 import useProducts from "./data/useProducts";
-import TestCart from "./components/TestCart/TestCart.jsx";
 import CartIcon from "./components/Cart/CartIcon.jsx";
 import "./App.css";
 
@@ -22,6 +20,7 @@ function App() {
     <div className="App">
       <UserProvider>
       <CartProvider>
+
         <header>
           <section>
             <h1>RCS - React Clothing Store</h1>
@@ -29,9 +28,6 @@ function App() {
             <CartContainer />
           </section>
 
-          <TestCartProvider>
-            <TestCart />
-          </TestCartProvider>
           
           <NavBar />
         </header>

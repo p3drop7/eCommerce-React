@@ -11,7 +11,7 @@ function UserAuthContainer() {
   return (
     <div className='auth-form'>
       { 
-        ( user === false || user === undefined || user === "Incorrect Pasword" || user === "User not registered")
+        ( user === null || user === undefined || user === "Incorrect Pasword" || user === "User not registered")
           ? <UserLogIn login={login} user={user}/>
           : <UserProfile user={user} logout={logout} login={login}/> 
       }

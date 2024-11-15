@@ -1,7 +1,7 @@
-import { child, get } from "firebase/database"
+import { child, get, ref } from "firebase/database"
 import { database } from "../data/useFirebase"
 
-export const initialCartState = false
+export const initialCartState = null
 
 export function userReducer(state, action) {
 
@@ -11,7 +11,7 @@ export function userReducer(state, action) {
             
             async function getData() {
                 try{
-                    const response = await get( child (database, "users/") )
+                    const response = await get( child ( ref(database), "users/") )
                     const dataSnapshot = response.val()
                     const data = [dataSnapshot, action.payload.user]
                     action.payload.setAsyncRes(data)
@@ -33,7 +33,7 @@ export function userReducer(state, action) {
         }
 
         case 'LOG_OUT': {
-            return false
+            return initialCartState
         }
 
         case 'OTHER': {
@@ -46,7 +46,6 @@ export function userReducer(state, action) {
 
                 // Get the info of the user in the database with the details of the user typed in the log in form ( payload[1] )
                 const userWithUsernameInDB = usersDataInDB[action.payload[1].userNameData]
-   
 
                 if(userWithUsernameInDB) {
                     // eslint-disable-next-line eqeqeq
@@ -62,7 +61,7 @@ export function userReducer(state, action) {
                     return "User not registered"
                 }
             }
-            return
+            return initialCartState
         }
 
         default: {

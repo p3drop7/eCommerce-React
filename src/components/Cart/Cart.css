@@ -36,6 +36,14 @@
     cursor: pointer;
 }
 
+h2{
+    margin: 0
+}
+
+h3 {
+    margin: 0
+}
+
 .close-icon {
     font-size: 2em;
     align-self: flex-start;
@@ -47,6 +55,19 @@
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+}
+
+.cartInfo{
+    margin: 10px 0 10px 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartInfo p {
+    margin: 0 15px 0 15px
 }
 
 .cart-item {
