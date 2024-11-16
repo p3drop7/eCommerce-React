@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext.jsx'
+import { UserContext } from '../../context/UserContext'
 import { IoMdClose } from "react-icons/io";
-import {UserContext} from '../../context/UserContext'
 import Cart from "./Cart.jsx"
 import "./Cart.css"
 
-function CartContainer() {
+function CartContainer({changePurchaseVisibility}) {
 
   const { cart, removeOneItem, emptyCart, cartVisibility, changeCartVisibility } = useContext(CartContext)
   const { user, login } = useContext(UserContext)
@@ -18,7 +18,14 @@ function CartContainer() {
             {
               ( user === false || user === undefined || user === "Incorrect Pasword" || user === "User not registered")
                 ? <button onClick={login}>Log in</button>
-                : <Cart cart={cart} removeOneItem={removeOneItem} user={user} emptyCart={emptyCart}/>
+                : <Cart 
+                    cart={cart}
+                    removeOneItem={removeOneItem} 
+                    user={user} 
+                    emptyCart={emptyCart} 
+                    changePurchaseVisibility={changePurchaseVisibility}
+                    changeCartVisibility={changeCartVisibility}
+                  />
             }
         </div>
     </section>

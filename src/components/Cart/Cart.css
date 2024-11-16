@@ -40,6 +40,10 @@ h3 {
     margin: 0
 }
 
+.close-icon{
+    cursor: pointer;
+}
+
 .cartIcon-container {
     display: flex;
     flex-flow: row nowrap;
@@ -73,6 +77,32 @@ h3 {
     flex-flow: row wrap;
     justify-content: center;
     align-items: center;
+}
+
+.cartInfo-buttons {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.cartInfo-buttons button {
+    padding: 5px;
+    margin: 0px 10px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-button:hover {
+    background-color: #4CAF50;
+}
+
+.empyCart-button:hover {
+    background-color: #c02332;
 }
 
 .cartInfo p {
@@ -123,4 +153,9 @@ h3 {
 
 .delete-icon {
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.delete-icon:hover {
+    color: red
 }

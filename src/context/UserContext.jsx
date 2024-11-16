@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useReducer, useState } from "react";
 import { userReducer, initialCartState } from "../reducers/userReducer";
-//import { database } from "../data/useFirebase";
-//import { child, get } from "firebase/database";
 
 export const UserContext = createContext()
 

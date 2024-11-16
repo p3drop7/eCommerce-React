@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import UserLogIn from './UserLogIn'
-import './UserAuth.css'
 import { UserContext } from '../../context/UserContext'
+import UserLogIn from './UserLogIn'
 import UserProfile from './UserProfile'
+import './UserAuth.css'
 
 function UserAuthContainer() {
 
