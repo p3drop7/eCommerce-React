@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { UserProvider } from "./context/UserContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import ProductCardContainer from "./components/ProductCard/ProductCardContainer";
@@ -7,7 +7,6 @@ import useProducts from "./data/useProducts";
 import CartIcon from "./components/Cart/CartIcon.jsx";
 import logoStore from "./images/logoStore.png"
 import UserAuthContainer from './components/UserAuth/UserAuthContainer'
-import { PurchaseProvider } from "./context/PurchaseContext.jsx";
 import PurchaseContainer from "./components/Purchase/PurchaseContainer.jsx";
 import "./App.css";
 
@@ -28,7 +27,6 @@ function App() {
     <div className="App">
       <UserProvider>
       <CartProvider>
-      <PurchaseProvider>
 
         <header>
           <img src={logoStore} alt="logo" className="logo"/>
@@ -43,7 +41,6 @@ function App() {
             : <PurchaseContainer changePurchaseVisibility={changePurchaseVisibility}/>
         }
         
-      </PurchaseProvider>
       </CartProvider>
       </UserProvider>
 

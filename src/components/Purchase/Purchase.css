@@ -12,8 +12,16 @@ h2{
     margin-bottom: 15px
 }
 
-.purchase-products-container {
-    width: 70%;
+.purchase-order-container {
+    width: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.purchase-productsList{
     padding: 10px;
     display: flex;
     flex-flow: column nowrap;
@@ -33,7 +41,7 @@ h2{
     flex-flow: column nowrap;
 }
 
-.purchase-buttons-container button{
+.purchase-confirm-button{
     padding: 5px 15px;
     margin: 5px 0px;
     border: 1px solid black;
@@ -48,8 +56,21 @@ h2{
     border-color: #4CAF50
 }
 
+.purchase-goBack-button{
+    padding: 5px 15px;
+    margin: 5px 0px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s ease
+}
+
 .purchase-goBack-button:hover{
     background-color: gray;
     color: white;
     border-color: gray
+}
+
+.confirmation-message {
+    width: 100%;
 }

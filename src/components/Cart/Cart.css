@@ -98,10 +98,12 @@ h3 {
 }
 
 .confirm-button:hover {
+    border-color: #4CAF50;
     background-color: #4CAF50;
 }
 
 .empyCart-button:hover {
+    border-color: #c02332;
     background-color: #c02332;
 }
 
