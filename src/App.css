@@ -1,21 +1,11 @@
 .App {
   text-align: center;
   width: 100%;
+  padding: 0;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   background-color: #F8F6F1;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -29,34 +19,15 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 header {
-  background-color: violet;
   width: 100%;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-}
-
-header section {
-  width: 80%;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  right: 0%
 }
 
 .logo {

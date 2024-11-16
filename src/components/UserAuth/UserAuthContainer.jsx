@@ -9,13 +9,13 @@ function UserAuthContainer() {
   const {user, login, logout}  = useContext(UserContext)
 
   return (
-    <div className='auth-form'>
+    <>
       { 
         ( user === null || user === undefined || user === "Incorrect Pasword" || user === "User not registered")
-          ? <UserLogIn login={login} user={user}/>
-          : <UserProfile user={user} logout={logout} login={login}/> 
+        ? <UserLogIn login={login} user={user}/>
+        : <UserProfile user={user} logout={logout} login={login}/>
       }
-    </div>
+    </>
   )
 }
 

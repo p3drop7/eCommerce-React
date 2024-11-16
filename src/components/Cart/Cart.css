@@ -32,10 +32,6 @@
     transition: right 0.3s ease;
 }
 
-.cart-icon {
-    cursor: pointer;
-}
-
 h2{
     margin: 0
 }
@@ -47,17 +43,20 @@ h3 {
 .cartIcon-container {
     display: flex;
     flex-flow: row nowrap;
+    margin: 0 20px
 }
 
 .cartIcon-container p {
-    margin: 0 5px 0 20px;
-    cursor: pointer
+    margin-right: 5px;
+    cursor: pointer;
+    color: white;
 }
 
 .cartIcon {
     font-size: 1.5em;
     align-self: flex-start;
     cursor: pointer;
+    color: white;
 }
 
 .cart-list-container {

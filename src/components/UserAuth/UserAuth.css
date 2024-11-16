@@ -1,15 +1,11 @@
-.auth-form {
-    width: 100%;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-}
-
 .log-in-form-container {
     position: fixed;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
     top: 0%;
     left: 0%;
     background-color: rgba(0, 0, 0, 0.7);
@@ -29,7 +25,7 @@
 }
 
 .logIn-form h2 {
-    margin: 0
+    margin: 0;
 }
 
 .logIn-form div {
@@ -60,14 +56,17 @@
 }
 
 .user-profile-container {
+    height: 100%;
+    padding: 20px 5px;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 
 .user-profile-container p {
     align-items: center;
+    color: black;
 }
 
 .user-profile-container p span {
@@ -75,7 +74,19 @@
 }
 
 .user-profile-container button {
-    margin-left: 10px
+    padding: 3px 10px;
+    margin-left: 10px;
+    color: black;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.user-profile-container button:hover {
+    color: white;
+    border-color: white;
 }
 
 .error-credentials {

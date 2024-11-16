@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { UserProvider } from "./context/UserContext.jsx";
 import { CartProvider } from "./context/CartContext.jsx";
 import ProductCardContainer from "./components/ProductCard/ProductCardContainer";
-import NavBar from "./components/NavBar/NavBar";
 import CartContainer from "./components/Cart/CartContainer.jsx";
 import useProducts from "./data/useProducts";
 import CartIcon from "./components/Cart/CartIcon.jsx";
 import logoStore from "./images/logoStore.png"
 import "./App.css";
+import UserAuthContainer from './components/UserAuth/UserAuthContainer'
 
 function App() {
   const { products, refreshProducts } = useProducts();
@@ -23,12 +23,10 @@ function App() {
       <CartProvider>
 
         <header>
-          <section>
-            <img src={logoStore} alt="logo" className="logo"/>
-            <CartIcon />
-            <CartContainer />
-          </section>
-          <NavBar />
+          <img src={logoStore} alt="logo" className="logo"/>
+          <CartIcon />
+          <CartContainer />
+          <UserAuthContainer />
         </header>
 
         <ProductCardContainer products={products} />

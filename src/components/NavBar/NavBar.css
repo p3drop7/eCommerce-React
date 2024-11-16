@@ -1,9 +1,0 @@
-nav{
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: blue;
-    justify-content: center;
-    align-items: center;
-}
