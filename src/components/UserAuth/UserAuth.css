@@ -1,94 +1,186 @@
 .log-in-form-container {
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: center;
-    top: 0%;
-    left: 0%;
-    background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .logIn-form {
-    width: 80%;
-    max-width: 300px;
-    padding: 20px;
-    display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    background-color: white;
+  width: 80%;
+  max-width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
 }
 
 .logIn-form h2 {
-    margin: 0;
+  margin: 0;
 }
 
 .logIn-form div {
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: flex-start;
-    padding: 10px 0px 10px 0px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  padding: 10px 0px 10px 0px;
 }
 
 .logIn-form div label {
-    text-align: left;
-    width: 100px;
+  text-align: left;
+  width: 100px;
 }
 
 .logIn-form div input {
-    max-width: 290px;
-    width: 100%;
+  max-width: 290px;
+  width: 100%;
 }
 
 .login-submit {
-    margin: 20px 0 10px 0;
-    padding: 5px 0 5px 0;
-    width: 100%;
-    max-width: 120px;
-    border: 1px solid black;
-    border-radius: 10px;
+  margin: 20px 0 10px 0;
+  padding: 5px 0 5px 0;
+  width: 100%;
+  max-width: 120px;
+  border: 1px solid #4CAF50;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.login-submit:hover{
+    background-color: #4CAF50;
+}
+
+.register-button{
+    background-color: transparent;
+    border: 0px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.register-button:hover {
+    text-decoration: underline;
 }
 
 .user-profile-container {
-    height: 100%;
-    padding: 20px 5px;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: flex-start;
-    align-items: center;
+  height: 100%;
+  padding: 20px 5px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .user-profile-container p {
-    align-items: center;
-    color: black;
+  align-items: center;
+  color: black;
 }
 
 .user-profile-container p span {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .user-profile-container button {
-    padding: 3px 10px;
-    margin-left: 10px;
-    color: black;
-    background-color: transparent;
-    border: 1px solid black;
+  padding: 3px 10px;
+  margin-left: 10px;
+  color: black;
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.user-profile-container button:hover {
+  color: white;
+  border-color: white;
+}
+
+.error-credentials {
+  color: red;
+}
+
+/* REGISTRATION FORM */
+
+.register-form-container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  top: 0%;
+  left: 0%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.register-form {
+  width: 80%;
+  max-width: 300px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.register-form h2 {
+    margin: 0;
+}
+
+.register-form div {
+  width: 100%;
+  padding: 5px 0px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+}
+
+.register-form div input {
+    width: 95%;
+}
+
+.registration-error-message {
+    color: red;
+}
+
+.registration-submit {
+    font-size: 0.9em;
+    margin:10px 0;
+    padding: 5px 15px;
+    background-color: white;
+    border: 1px solid #4CAF50;
     border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.registration-submit:hover {
+    background-color: #4CAF50;
+}
+
+.registration-goBack {
+    background-color: transparent;
+    border: 0px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.user-profile-container button:hover {
-    color: white;
-    border-color: white;
-}
-
-.error-credentials {
-    color: red;
+.registration-goBack:hover {
+    text-decoration: underline;
 }

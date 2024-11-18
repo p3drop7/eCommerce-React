@@ -38,9 +38,9 @@ function UserResgistration({register, setRegistrationVisibility}) {
               <label htmlFor="password">Password</label>
               <input type="text" name='password' onChange={setPass}/>
           </div>
-        { isEmpty === true && <p>Please fill up all fields</p> }
+        { isEmpty === true && <p className="registration-error-message">Please fill up all fields</p> }
         <button className='registration-submit' type='submit' onClick={handleClick}>Register</button>
-        <button className='login-goBack' onClick={()=> setRegistrationVisibility(false)}>Log in</button>
+        <button className='registration-goBack' onClick={()=> setRegistrationVisibility(false)}>Log in</button>
       </form>
     </section>
   )
