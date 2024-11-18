@@ -34,11 +34,17 @@ export function UserProvider({children}) {
         type: 'LOG_OUT'
     })
 
+    const register =(details)=> dispatch({
+        type: 'REGISTER',
+        payload: details
+    })
+
     return (
         <UserContext.Provider value={{
             user: state,
             login,
-            logout
+            logout,
+            register
         }}>
             {children}
         </UserContext.Provider>

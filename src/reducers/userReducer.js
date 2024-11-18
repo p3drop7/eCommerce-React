@@ -1,4 +1,4 @@
-import { child, get, ref } from "firebase/database"
+import { child, get, ref, set } from "firebase/database"
 import { database } from "../data/useFirebase"
 
 export const initialCartState = null
@@ -37,9 +37,12 @@ export function userReducer(state, action) {
         }
 
         case 'OTHER': {
-
             // If there is info in action.payload from the Database
             if (action.payload.length > 1) {
+
+                if(action.payload[1].userNameData === "" || action.payload[1].userPassData === ""){
+                    return "Please write your user and password"
+                }
 
                 // Get the database info stored in the first position of the array from the payload
                 const usersDataInDB = action.payload[0]
@@ -51,8 +54,8 @@ export function userReducer(state, action) {
                     // eslint-disable-next-line eqeqeq
                     if(userWithUsernameInDB.pass == action.payload[1].userPassData){
                        return {
-                            userEmail: userWithUsernameInDB.email,
-                            userName: action.payload[1].userNameData
+                            email: userWithUsernameInDB.email,
+                            name: action.payload[1].userNameData
                        }
                     }else{
                         return "Incorrect Pasword"
@@ -64,8 +67,24 @@ export function userReducer(state, action) {
             return initialCartState
         }
 
+        case 'REGISTER': {
+
+            if(action.payload){
+                const userDetails = {
+                    email: action.payload.email,
+                    name: action.payload.name,
+                    pass: action.payload.name
+                }
+     
+                set(ref(database, 'users/' + action.payload.name), userDetails)
+                return userDetails
+            }
+            return initialCartState
+        }
+
         default: {
             break
         }
+
     }
 }

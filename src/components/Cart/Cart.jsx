@@ -4,7 +4,7 @@ import "./Cart.css"
 function Cart({cart, removeOneItem, emptyCart, user, changePurchaseVisibility, changeCartVisibility}) {
   return (
     <>
-      <h3>{user && user.userName}</h3>
+      <h3>{user && user.name}</h3>
       <div className="cartInfo">
         <p>Items: {cart != null ? cart.totalQuantity : 0}</p><p>Total: € {cart != null ? cart.totalPrice : 0}</p>
       </div>

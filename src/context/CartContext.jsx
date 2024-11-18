@@ -21,7 +21,7 @@ export function CartProvider({children}) {
         } else {
             get( child ( ref(database), "carts/"))
                 .then(res => res.val())
-                .then(res => getCart(res, user.userName))
+                .then(res => getCart(res, user.name))
                 .catch(error => console.log(error))
         }
     }, [user])
@@ -29,7 +29,7 @@ export function CartProvider({children}) {
     // Update the cart in Firebase database when there is any change
     useEffect(() => {
         if(user){
-            set(ref(database, 'carts/' + user.userName), state)
+            set(ref(database, 'carts/' + user.name), state)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state])

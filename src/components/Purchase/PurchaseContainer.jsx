@@ -17,7 +17,7 @@ function PurchaseContainer({ changePurchaseVisibility }) {
     const purchaseID = Date.now()
     const order = {
       orderId: purchaseID,
-      user: user.userName, 
+      user: user.name, 
       products: cart.products,
       totalPrice: cart.totalPrice,
       totalQuantity: cart.totalQuantity
