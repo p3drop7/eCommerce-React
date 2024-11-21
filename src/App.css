@@ -56,3 +56,14 @@ footer p a {
 footer p a:hover {
   color: white;
 }
+
+@media (min-width: 480px) and (max-width: 770px) {
+  header {
+    
+  }
+}
+
+@media (max-width: 479px){
+  header {
+    }
+}

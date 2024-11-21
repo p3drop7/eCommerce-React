@@ -6,7 +6,7 @@ function ProductCard({item, addItem}) {
   return (
     <article className="productCard">
         <div className="cardImage" style={{ backgroundImage: `url(${item.image})`}} />
-        <h5>{item.title}</h5>
+        <div className="product-title">{item.title}</div>
         <p>{item.price}€</p>
         <BiCartAdd className="add-button" onClick={()=> addItem(item)}/>
     </article>
