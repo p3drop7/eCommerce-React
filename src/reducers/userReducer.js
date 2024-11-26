@@ -68,12 +68,11 @@ export function userReducer(state, action) {
         }
 
         case 'REGISTER': {
-
             if(action.payload){
                 const userDetails = {
                     email: action.payload.email,
                     name: action.payload.name,
-                    pass: action.payload.name
+                    pass: action.payload.pass
                 }
      
                 set(ref(database, 'users/' + action.payload.name), userDetails)
