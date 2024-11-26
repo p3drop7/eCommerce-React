@@ -1,21 +1,23 @@
-import React, { createContext, useEffect, useReducer, useState } from "react";
+import React, { createContext, useReducer } from "react";
 import { userReducer, initialCartState } from "../reducers/userReducer";
+import { get, ref, child } from "firebase/database";
+import { database } from "../data/useFirebase";
 
 export const UserContext = createContext()
 
 export function UserProvider({children}) {
 
     const [state, dispatch] = useReducer(userReducer, initialCartState)
-    const [asyncRes, setAsyncRes] = useState(false)
+    //const [asyncRes, setAsyncRes] = useState(false)
     
-    useEffect(() => {
+    /* useEffect(() => {
         dispatch({
             type: 'OTHER',
             payload: asyncRes
         })
-    }, [asyncRes])
+    }, [asyncRes]) */
 
-    const login = (user) => dispatch({
+    /* const login = (user) => dispatch({
         type: 'LOG_IN',
         payload: {user, setAsyncRes}
         // user has userName and pass inside it
@@ -27,7 +29,19 @@ export function UserProvider({children}) {
         // with the value of the response from the promise. This was made this way because it was impossible to return...
         // a value with a async function, since async functions only return promises and not the response.
         // It can be made with a useDispatch, or a middleware like react-thunk with a global state
-    })
+    }) */
+
+    const login = (user) => {
+        get( child ( ref(database), "users/") )
+            .then(snapshot => snapshot.val())
+            .then(response =>{
+                dispatch({
+                    type: 'LOG_IN',
+                    payload: [response, user]
+                })
+            })
+            .catch(error => console.log(error))
+    }
 
     // Fuintion to log out
     const logout = () => dispatch({

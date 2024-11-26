@@ -1,4 +1,4 @@
-import { child, get, ref, set } from "firebase/database"
+import {set, ref } from "firebase/database"
 import { database } from "../data/useFirebase"
 
 export const initialCartState = null
@@ -7,7 +7,7 @@ export function userReducer(state, action) {
 
     switch (action.type) {
 
-        case 'LOG_IN': {
+        /* case 'LOG_IN': {
             
             async function getData() {
                 try{
@@ -30,13 +30,13 @@ export function userReducer(state, action) {
 
             getData()
             return
-        }
+        } */
 
         case 'LOG_OUT': {
             return initialCartState
         }
 
-        case 'OTHER': {
+        case 'LOG_IN': {
             // If there is info in action.payload from the Database
             if (action.payload.length > 1) {
 
