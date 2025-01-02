@@ -1,4 +1,5 @@
 # ReactJS Storee - eCommerce created with React.js
+[https://p3drop7.github.io/eCommerce-React/](p3drop7.github.io/eCommerce-React/)
 
 ## Dependencies used:
 - React, useState, useEffect, useReducer, useContext
@@ -23,6 +24,6 @@ Runs the app in dev mode on [http://localhost:3000](http://localhost:3000)
 Builds the app for production to the `build` folder.
 
 ### Deployment
-Github pages wwas used to deploy the App and provide a preview.
-The preview can be accessed through: 
+Github pages was used to deploy the App and provide a preview.
+The preview can be accessed on:  [https://p3drop7.github.io/eCommerce-React/](https://p3drop7.github.io/eCommerce-React/)
 
