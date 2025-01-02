@@ -1,53 +1,28 @@
 import {set, ref } from "firebase/database"
 import { database } from "../data/useFirebase"
 
-export const initialCartState = null
+export const initialUserState = null
 
+/*
+userReducer has a switch which provides the functionality to manage the userContext.jsx state.
+It takes the user state and the correspondent action to update the state.
+The action stores:
+- type: the type of action (e.g. LOG_IN, LOG_OUT, etc)
+- payload: the data needed to update the state (the user data)
+*/
 export function userReducer(state, action) {
 
     switch (action.type) {
 
-        /* case 'LOG_IN': {
-            
-            async function getData() {
-                try{
-                    const response = await get( child ( ref(database), "users/") )
-                    const dataSnapshot = response.val()
-                    const data = [dataSnapshot, action.payload.user]
-                    action.payload.setAsyncRes(data)
-
-                } catch (error) {
-                    console.log("ERROR! ," + error)
-                }
-            }
-            
-            // THIS DOESN'T WORK BECAUSE THE ASYNC FUNCTION ALWAYS RETURNS A PROMISE
-            // IF WE STORE THE RESPONSE OF A PROMISE OUTSIDE THE ASYNC FUNCTION IN A VARIABLE IT WON'T WORK EITHER...
-            // BECAUSE THE JAVASCRIPT EXCUSTION DOESN'T STOP OUTSIDE THE FUNCTION SO THE VARIBLE'S VALUE WILL BE CALLED...
-            // DEFORE THE COMPLETION OF THE PROMISE, THIS THE VARIABLE WLL BE UNDEFINED.
-            // CHECK IF REDUX // USEDISPATCH // STORE WILL RESOLVE IT SINCE IT STORES ASYNC DATA IN AN ASYC STORE 
-            // CHECK ALSO REDUCE-THUNK MIDDLEWARE
-
-            getData()
-            return
-        } */
-
-        case 'LOG_OUT': {
-            return initialCartState
-        }
-
+        // Case used to log in, it means to check if the user exists in Firebase and if the password is correct.
         case 'LOG_IN': {
-            // If there is info in action.payload from the Database
             if (action.payload.length > 1) {
 
                 if(action.payload[1].userNameData === "" || action.payload[1].userPassData === ""){
                     return "Please write your user and password"
                 }
 
-                // Get the database info stored in the first position of the array from the payload
                 const usersDataInDB = action.payload[0]
-
-                // Get the info of the user in the database with the details of the user typed in the log in form ( payload[1] )
                 const userWithUsernameInDB = usersDataInDB[action.payload[1].userNameData]
 
                 if(userWithUsernameInDB) {
@@ -64,9 +39,15 @@ export function userReducer(state, action) {
                     return "User not registered"
                 }
             }
-            return initialCartState
+            return initialUserState
         }
 
+        // Case used to log out, it means to delete the user sate to the initialUserState (null)
+        case 'LOG_OUT': {
+            return initialUserState
+        }
+
+        // Case used to register a user, it means to add one entry to Firebase
         case 'REGISTER': {
             if(action.payload){
                 const userDetails = {
@@ -78,7 +59,7 @@ export function userReducer(state, action) {
                 set(ref(database, 'users/' + action.payload.name), userDetails)
                 return userDetails
             }
-            return initialCartState
+            return initialUserState
         }
 
         default: {

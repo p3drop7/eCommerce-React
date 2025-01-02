@@ -10,10 +10,16 @@ import UserAuthContainer from './components/UserAuth/UserAuthContainer'
 import PurchaseContainer from "./components/Purchase/PurchaseContainer.jsx";
 import "./App.css";
 
+// App is the main component that contains all of the components.
 function App() {
+  
+  // This is the state with the products data brought from the useProducts.js custom hook.
   const { products, refreshProducts } = useProducts();
+
+  // This sate stores and handles and visibility of the PurchaseContainer.jsx component.
   const [purchaseVisibility, setPurchaseVisibility] = useState(false)
 
+  // This useEffect is triggered when the App is rendered, and it pulls and saves the products data.
   useEffect(() => {
     refreshProducts()
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -23,6 +29,11 @@ function App() {
     setPurchaseVisibility(!purchaseVisibility)
   }
   
+  /*
+  The app uses two providers to make the functions and data available in the whole app.
+  <userProvider> is the provider from UserContext.jsx.
+  <CartProvider> is the provider from CartContext.jsx.
+  */
   return (
     <div className="App">
       <UserProvider>

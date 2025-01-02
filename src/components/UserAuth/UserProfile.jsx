@@ -1,5 +1,6 @@
 import './UserAuth.css'
 
+// This component is the view module to show the user data on the screen.
 function UserProfile({user, logout}) {
 
     return (

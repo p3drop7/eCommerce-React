@@ -1,9 +1,17 @@
 export const initialCartState = null
 
+/*
+cartReducer provides a switch with all the functionality needed to update the cartContext.jsx state.
+It takes the cart state and the correspondent action to update the state.
+The action stores:
+- type: the type of action (e.g. ADD_ITEM, REMOVE_ITEM, etc)
+- payload: the data needed to update the state (e.g. the item to add or remove, etc.)
+*/
 export const cartReducer = (state, action) => {
 
     switch (action.type) {
 
+        // This case is used to save the cart in the state if there is any in forebase for the current user.
         case 'GET_CART' : {
             if(!action.payload.response || action.payload.response === undefined) {
                 return null
@@ -13,9 +21,11 @@ export const cartReducer = (state, action) => {
                 return null
             }
         }
-        
+
+        // This case is used to add 1 item to the cart state.
         case 'ADD_ITEM': {
 
+            // If there is no cart saved up, it add a new cart with the item.
             if(!state){
                 const newItem = {
                     id: action.payload.id,
@@ -33,7 +43,9 @@ export const cartReducer = (state, action) => {
                 }
                 return newCart
 
-            }else if( state.products.find(item => item.id === action.payload.id) ) {
+            // If there is an item with the same id, it add +1 to that item.
+            // This also updates the totalPrice and totalQuantity of the cart
+            } else if ( state.products.find(item => item.id === action.payload.id) ) {
                 
                 const newItems = state.products.map(item => {
                     if(item.id === action.payload.id){
@@ -63,6 +75,8 @@ export const cartReducer = (state, action) => {
                 }
                 return newCart
                 
+            // If the item is not in the cart, it adds it to the state.
+            // This also updates the totalPrice and totalQuantity of the cart state.
             }else{
                 const newItem = {
                     id: action.payload.id,
@@ -96,18 +110,20 @@ export const cartReducer = (state, action) => {
             }
         }
 
+        // This case is used to remove one item from the cart list.
+        // This also updates the totalPrice and totalQuantity of the cart state.
         case 'REMOVE_ITEM': {
             
             const newProdList = state.products.map(item => {
                 if(item.id === action.payload.id){
                     item.quantity = item.quantity - 1
                 }
+                // If the quantity of the product reaches 0, it is added as null and then removed.
                 if(item.quantity === 0){
                     return null
                 }
                 return item
             })
-
             const newCleanProdList = newProdList.filter(item => item !== null)
 
             let newTotalPrice = 0
@@ -127,10 +143,12 @@ export const cartReducer = (state, action) => {
                 totalPrice: newTotalPrice
             }
 
+            // If the totalQuantity of products reaches 0, then the cart state is deleted to the initialCartState (null)
             if(newCart.products.length === 0) return initialCartState
             return newCart
         }    
         
+        // Funtion to delete all of the products from the cart to the initialCartState (null)
         case 'EMPTY_CART': {
             return initialCartState
         }

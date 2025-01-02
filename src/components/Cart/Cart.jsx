@@ -1,7 +1,17 @@
 import { AiFillDelete } from "react-icons/ai";
 import "./Cart.css"
 
+/* 
+Cart Component that acts as the View module to show the cart data with the list of products.
+It takes the props from the CartContainer.jsx component as the cart and user state, and functions for the buttons.
+*/
 function Cart({cart, removeOneItem, emptyCart, user, changePurchaseVisibility, changeCartVisibility}) {
+
+  /* 
+  This component also handles the visibility of the cart list (Cart.jsx) and the purchase visibility (PurchaseCointainer.jsx).
+  changeCartVisibility shows/hides the cart list
+  changePurchaseVisibility handles the purchase list.
+  */
   return (
     <>
       <h3>{user && user.name}</h3>

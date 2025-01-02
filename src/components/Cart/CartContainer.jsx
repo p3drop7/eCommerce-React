@@ -5,9 +5,18 @@ import { IoMdClose } from "react-icons/io";
 import Cart from "./Cart.jsx"
 import "./Cart.css"
 
+/* 
+This component is the container that acts as the controller module for the Cart component.
+It has the changePurchaseVisibity prop, which is a function used to show/hide the cart list.
+*/
 function CartContainer({changePurchaseVisibility}) {
 
+  console.log(changePurchaseVisibility)
+  // Cart state with all of data and functions from CartContext.jsx.
   const { cart, removeOneItem, emptyCart, cartVisibility, changeCartVisibility } = useContext(CartContext)
+
+  console.log(changeCartVisibility)
+  // User context with the user data from UserContext.jsx
   const { user, login } = useContext(UserContext)
 
   return (

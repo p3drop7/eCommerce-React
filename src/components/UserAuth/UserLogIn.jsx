@@ -1,11 +1,17 @@
 import React, { useState } from 'react'
 import './UserAuth.css'
 
+/* 
+This component manages login.
+It pulls the data from the prop "user" and the login funtion from the user context.
+*/
 function UserLogIn({login, user, setRegistrationVisibility}) {
 
+  // States used to save the username and password from the login form.
   const [userName, setUserName] = useState(null)
   const [passValue, setPassValue] = useState(null)
 
+  // This funtion handles the information when the submit button is clicked and triggers the login funtion.
   const handleClick =(event)=> {
     event.preventDefault()
     if(userName === null || passValue === null){
@@ -23,6 +29,7 @@ function UserLogIn({login, user, setRegistrationVisibility}) {
     }
   }
 
+  // This is the login form which watches and saves the userName and password inputs with the onChange event in the component states.
   return (
     <section className='log-in-form-container'>
       <form className='logIn-form' action="#">
