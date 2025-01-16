@@ -11,7 +11,7 @@ export const cartReducer = (state, action) => {
 
     switch (action.type) {
 
-        // This case is used to save the cart in the state if there is any in forebase for the current user.
+        // This case is used to save the cart in the state if there is any in Firebase for the current user.
         case 'GET_CART' : {
             if(!action.payload.response || action.payload.response === undefined) {
                 return null
