@@ -12,8 +12,8 @@ function useProducts() {
   // Function to fetch the products and save them in the state.
   const refreshProducts = () => {
     return fetch(API_ENDPOINT)
-      .then(res => res.json())
-      .then(res => setProducts(res));
+      .then((res) => res.json())
+      .then((res) => setProducts(res));
   };
 
   return { products, refreshProducts };

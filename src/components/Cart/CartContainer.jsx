@@ -11,11 +11,9 @@ It has the changePurchaseVisibity prop, which is a function used to show/hide th
 */
 function CartContainer({changePurchaseVisibility}) {
 
-  console.log(changePurchaseVisibility)
   // Cart state with all of data and functions from CartContext.jsx.
   const { cart, removeOneItem, emptyCart, cartVisibility, changeCartVisibility } = useContext(CartContext)
 
-  console.log(changeCartVisibility)
   // User context with the user data from UserContext.jsx
   const { user, login } = useContext(UserContext)
 
